@@ -1,35 +1,36 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 
-class Data {
+ class Data {
     private String mail;
     private int age;
     private String address;
     private String gender;
     private String office;
 
-    Scanner setData = new Scanner(System.in);
+    Scanner createData = new Scanner(System.in);
 
     void setData() {
         System.out.print("email: ");
-        this.mail = setData.nextLine();
+        this.mail = createData.nextLine();
         System.out.print("age: ");
-        this.age = setData.nextInt();
-        setData.nextLine();
+        this.age = createData.nextInt();
+        createData.nextLine();
         System.out.print("address: ");
-        this.address = setData.nextLine();
+        this.address = createData.nextLine();
         System.out.print("gender: ");
-        this.gender = setData.nextLine();
+        this.gender = createData.nextLine();
         System.out.print("office of company: ");
-        this.office = setData.nextLine();
+        this.office = createData.nextLine();
     }
 
     void display() {
-        System.out.println("email: " + this.mail);
-        System.out.println("age: " + this.age);
-        System.out.println("address: " + this.address);
-        System.out.println("gender: " + this.gender);
-        System.out.println("office of company: " + this.office);
+        System.out.print("email: " + this.mail);
+        System.out.print(" | age: " + this.age);
+        System.out.print(" | address: " + this.address);
+        System.out.print(" | gender: " + this.gender);
+        System.out.print(" | office of company: " + this.office);
     }
 }
 
@@ -78,12 +79,28 @@ class Staff {
 
 
 
-
 public class Company {
-    public static void main(String[] args) {
-        // Staff first = new Staff();
+    public static void insert(ArrayList<Staff> list) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Name: ");
+        String name = input.nextLine();
+        System.out.print("Password: ");
+        String password = input.nextLine();
         Data newData = new Data();
         newData.setData();
-        newData.display();
+        Staff newStaff = new Staff(name, password, newData);
+        list.add(newStaff);
+        System.out.println("successful!");
+        input.close();
+    }
+    public static void main(String[] args) {
+        // Staff first = new Staff();
+        ArrayList<Staff> company = new ArrayList<>();
+        insert(company);
+        Staff tmp = company.get(0);
+        tmp.login("1111");
+        Data test = tmp.getData();
+        test.display();
+        
     }
 }
