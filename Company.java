@@ -2,6 +2,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
+class Admin extends Staff {
+    
+}
+
  class Data {
     private String mail;
     private int age;
@@ -247,13 +251,9 @@ public class Company {
                     System.out.println("invalid, please choice again!");
             }
         }
+
+        //đóng biến nhập
         input.close();
-        //gọi thử 
-        // insert(company);
-        // Staff tmp = company.get(0);
-        // tmp.login("1111");
-        // Data test = tmp.getData();
-        // test.display();
         
     }
 }
