@@ -62,20 +62,37 @@ public class lesson1 {
 
         
         // số nguyên tố là số chỉ chia hết cho 1 và chia hết chính nó;
-        long  n = 1000000000;
-        boolean flag = true;
-        for(int i = 2; i < (n); i++) {
-            if(n % i == 0) {
-                flag = false;
-                break;
-            }
+        // long  n = 1000000000;
+        // boolean flag = true;
+        // for(int i = 2; i < (n); i++) {
+        //     if(n % i == 0) {
+        //         flag = false;
+        //         break;
+        //     }
+        // }
+        // if(flag) {
+        //     System.out.println("la so nguyen to");
+        // } else {
+        //     System.out.println("khong la so nguyen to");
+        // }
+
+        //ví dụ về tính giai thừa
+
+        int n = 5;
+        int result = 1;
+        // for(int i = n; i  > 0; i--) { // 4*3*2*1
+        //     System.out.println(i);
+        //     result = result * i;
+        // }
+            int tmp = n;
+        while(tmp > 0) {
+            System.out.println(tmp);
+            result = result * tmp;
+            tmp--;
         }
-        if(flag) {
-            System.out.println("la so nguyen to");
-        } else {
-            System.out.println("khong la so nguyen to");
-        }
+        System.out.println(n + "!" + " = " + result);
 
         //cho một đoạn bắt đầu từ a và kết thúc ở b [a, b]
         //in ra các số nguyên tố trong đoạn đó 
+}
 }
