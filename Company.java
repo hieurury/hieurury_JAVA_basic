@@ -133,7 +133,8 @@ public class Company {
         input.nextLine();
         return number;
     }
-
+    // các này mặc dù đã chạy đăng nhập ok nhưng còn vấn đề
+    // không trả về thông tin đối tượng đăng nhập dẫn đến sẽ ko xác định được đối tượng sử dụng menu
     public static boolean login(ArrayList<Staff> list) {
         System.out.print("User name: ");
         String userName = input.nextLine();
