@@ -1,2 +1,1 @@
-int number = 0;
-                int n
+28
