@@ -5,86 +5,74 @@ import java.util.Scanner;
 public class lesson1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        int a = input.nextInt();
+        int b = input.nextInt();
 
+        
+        //UCLN-BCNN
 
-        // **** 4
-        //  *** 3
-        //   ** 2
-        //    * 1
-        // số dấu cách = i | số dấu sao = n - i
-        // for(int i = 0; i < n; i++) {
-        //     //in ra dấu cách
-        //     for(int j = 0; j < i; j++) { 
-        //         System.out.print(" ");
-        //     }
-        //     //in ra dấu sao
-        //     for(int j = 0; j < n-i; j++) { 
-        //         System.out.print("*");
-        //     }
-        //     System.out.print("\n");
-        // }
+        //(a, b) = m | trong đó m là ức chung lớn nhất của a và b;
+        //(6, 9) = m 
+        // 2;3;6|6 - 3;9|9 -> (6, 9) = 3
+        //(8, 4) = 4
+
 
         
 
+        //công thức
+        //(a, b) -> a = b*k + x;
+        //(b, x) -> ?
 
 
-        // **** 4
-        // *** 3
-        // ** 2
-        // * 1
+        //(165, 25) -> 165 = 25*6 + 15;
+        //(25, 15) -> 25 = 15*1 + 5;
+        //(15, 5) -> 15 = 5*3 + 0;
+        //(5, 0) -> UCLN = 5;
 
-
-        //in xuôi
-        // for(int i = 1; i <= n; i++) { // i = 1, -> 2
-        //     for(int j = 0; j <= n - i ; j++) { // j: 1->4 -> *
-        //         System.out.print("*");
-        //     }
-        //     System.out.print("\n");
-        // }
+        //khi lấy ngược -> tự chuyển lại dạng đúng
+        //(a, b)
+        //(25, 165) -> 25 = 165*0 + 25;
+        //(165, 25) -> như trên
+        //(165, 25) = 5
         
-        //tam giác số
-        //1
-        //2 2
-        //3 3 3
-        //4 4 4 4
-        // in ngược
-        int n = input.nextInt();
-        for(int i = 1; i <= n; i++) { // i = 1, -> 2
-            for(int j = 1; j <= i ; j++) { // j: 1->4 -> *4
-                System.out.print(i + " ");
-            }
-            System.out.print("\n");
+
+        //(6, 9) -> chạy tới min của 2 thằng
+        // int ucln = 1;
+        // for(int i = 1; i <= a; i++) {
+        //     if(a % i == 0 && b % i == 0) {
+        //         ucln = i;
+        //     }
+        // }
+
+        // while(b > 0) {
+        // int tmp = b;
+        //    b = a % b;
+        //    a = tmp;
+        // }
+
+
+        //BCNN - bội chung nhỏ nhất
+        //bcnn = tích trị tuyệt đối a và b * ucln;
+        // [a, b] = |a*b| / (a, b)
+
+        
+        int tmpa = a; // để in ra 
+        int tmpb = b;
+        if(a < 0) a = -a;
+        if(b < 0) b = -b;
+        while(b > 0) {
+        int tmp = b;
+           b = a % b;
+           a = tmp;
         }
+        int ucln = a;
+        int bcnn = Math.abs(tmpa*tmpb) / ucln;
 
-
-        
-        //===============================================================
-        //tam giác số - dạng 2
-        //1
-        //2 3
-        //4 5 6
-        //7 8 9 10
-
-
-        //bài tập if
-        //nhập vào số giây. tính số ngày, số giờ, số phút, số giây.
-        //ví dụ: nhập 86400 -> in ra 1day 00h00m00s
-        //gợi ý: 1 giờ = 3600 giây
-        // 1 phút = 60 giây
-        // 1 ngày = 86400 giây
-
-        //==============================================================
-
-
-
-
-
-        //In bang cuu chuong
-        // System.out.println("Nhap bang cuu chuong muon hien thi: ");
-        // int n = input.nextInt();
-        // for (int i = 1; i <= 10; i++) {
-        //     System.out.println(n + " x " + i + " = " + (n*i));
-        // }
+        //khi đề kêu in kiểu này:
+        //(a, b) = m -> m là ucln
+        //[a, b] = n -> n là bcnn
+        System.out.println("(" + tmpa + ", " + tmpb + ") = " + ucln);
+        System.out.println("[" + tmpa + ", " + tmpb + "] = " + bcnn);
         input.close();
        
         
